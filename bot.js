@@ -155,8 +155,9 @@ if (err) console.error(err);
 if (err) console.error(err);
 })
     })
-	
-	
+client.on('ready', () => {
+	console.log(`${client.user.id} ${client.user.tag}`);
+});
 	
 	
 client.login('NTMzNDI0NjM4MTY5MTg2MzE0.Dy0uhg.BYXoetFSLppU_qP9MPkyOJkW_T8')
