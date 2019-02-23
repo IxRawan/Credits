@@ -53,9 +53,11 @@ const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
 let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
-
+const prefix ="E#";
 ,ti={}  
 ,spee={}; 
+
+
 
 
 client.on("message", (message) => {
@@ -92,20 +94,20 @@ if(message.content.startsWith("E#daily")) {
  let cont = message.content.slice(prefix.length).split(" ");
 let args = cont.slice(1);
 let sender = message.author
-if(message.content.startsWith('E#credit')) {
+if(message.content.startsWith('E#trans')) {
           if (!args[0]) {
-            message.channel.send(`**Usage: ${prefix}credit <@user> <amount>**`);
+            message.channel.send(`**Usage: ${prefix}trans @IxRawan_ amount**`);
          return;
            }
         // We should also make sure that args[0] is a number
         if (isNaN(args[0])) {
-            message.channel.send(`**Usage: ${prefix}credit <@user> <amount>**`);
+            message.channel.send(`**Usage: ${prefix}trans @IxRawan_ amount**`);
             return; // Remember to return if you are sending an error message! So the rest of the code doesn't run.
              }
             let defineduser = '';
             let firstMentioned = message.mentions.users.first();
             defineduser = (firstMentioned)
-            if (!defineduser) return message.channel.send(`**Usage: ${prefix}credit <@user> <amount>**`);
+            if (!defineduser) return message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
             var mentionned = message.mentions.users.first();
 if (!profile[sender.id]) profile[sender.id] = {}
 if (!profile[sender.id].credits) profile[sender.id].credits = 200;
@@ -155,19 +157,19 @@ if (err) console.error(err);
 if (err) console.error(err);
 })
     })
-client.on('ready', () => {
-	console.log(`${client.user.id} ${client.user.tag}`);
-});
-	
-	
-client.login('NTMzNDI0NjM4MTY5MTg2MzE0.Dy0uhg.BYXoetFSLppU_qP9MPkyOJkW_T8')
 	
 	
 	
 	
-		
+	
+	
+	
+	
+	
+	
+client.login(process.env.BOT_TOKEN);
 
-
+//خقوق الكود لي قنات وايت فوكس
 	
 	
 	
